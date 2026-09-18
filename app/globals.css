@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+
+    /* Status badge conventions */
+    --status-measured: 160 84% 39%;
+    --status-estimated: 38 92% 50%;
+    --status-forecast: 199 89% 48%;
+    --status-authoritative: 239 84% 67%;
+    --status-signal: 215 16% 47%;
+    --status-warning: 38 92% 50%;
+    --status-danger: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 25%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 212.8 76.3% 48%;
+
+    --status-measured: 160 84% 45%;
+    --status-estimated: 38 92% 55%;
+    --status-forecast: 199 89% 55%;
+    --status-authoritative: 239 84% 75%;
+    --status-signal: 215 20% 65%;
+    --status-warning: 38 92% 55%;
+    --status-danger: 0 75% 55%;
+  }
+
+  .high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --primary: 60 100% 50%; /* Pure High Contrast Yellow */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 90%;
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 60 100% 50%;
+
+    --status-measured: 120 100% 50%;
+    --status-estimated: 60 100% 50%;
+    --status-forecast: 180 100% 50%;
+    --status-authoritative: 300 100% 50%;
+    --status-signal: 0 0% 100%;
+    --status-warning: 60 100% 50%;
+    --status-danger: 0 100% 50%;
+  }
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Touch targets must be at least 44x44px for accessibility */
+button, a, input, select, textarea {
+  min-height: 2.75rem;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

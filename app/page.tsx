@@ -385,6 +385,29 @@ export default function DashboardPage() {
             </Link>
           </div>
 
+          {/* Operator Training Course Callout */}
+          <div className="border border-primary/30 rounded-xl bg-primary/5 p-5 shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
+                <ShieldAlert className="w-4 h-4 text-primary" />
+                Operator Training
+              </span>
+              <StatusBadge type="authoritative" label="8 Modules" />
+            </div>
+            <h3 className="text-sm font-bold text-foreground">
+              CHART+ Master Operator Training Course
+            </h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Step-by-step interactive slide deck explaining how to use Haber's toxic load, radiological stay times, 3-tier WBGT, and commander metrics.
+            </p>
+            <Link
+              href="/training"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 shadow-sm transition-opacity"
+            >
+              Launch Interactive Training Slides →
+            </Link>
+          </div>
+
           {/* Quick Guidance Box */}
           <div className="border border-border rounded-xl bg-card p-5 shadow-sm space-y-3">
             <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">

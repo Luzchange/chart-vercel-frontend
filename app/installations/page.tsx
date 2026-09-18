@@ -16,7 +16,11 @@ import {
   Radiation,
   FlaskConical,
   Eye,
-  SlidersHorizontal,
+  Plane,
+  Target,
+  Layers,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import {
   GLOBAL_LOCATIONS,
@@ -26,6 +30,7 @@ import {
   GeographicRegion,
 } from "@/lib/data/locations";
 import { GoogleBaseMap } from "@/components/maps/GoogleBaseMap";
+import { CommanderDecisionMatrix } from "@/components/command/CommanderDecisionMatrix";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
 export default function InstallationsPage() {
@@ -35,6 +40,7 @@ export default function InstallationsPage() {
   const [selectedRegion, setSelectedRegion] = useState<string>("all");
   const [activeLocationId, setActiveLocationId] = useState<string>("BASE-01");
   const [activeBaseFeedback, setActiveBaseFeedback] = useState<string | null>(null);
+  const [showCommanderMatrix, setShowCommanderMatrix] = useState<boolean>(true);
 
   // Active location record
   const activeLocation = useMemo(() => {
@@ -47,11 +53,14 @@ export default function InstallationsPage() {
   // Filtered locations
   const filteredLocations = useMemo(() => {
     return GLOBAL_LOCATIONS.filter((item) => {
+      const searchLower = search.toLowerCase();
       const matchSearch =
-        item.name.toLowerCase().includes(search.toLowerCase()) ||
-        item.country.toLowerCase().includes(search.toLowerCase()) ||
-        item.stateOrProvince.toLowerCase().includes(search.toLowerCase()) ||
-        item.weatherStation.toLowerCase().includes(search.toLowerCase());
+        item.name.toLowerCase().includes(searchLower) ||
+        item.country.toLowerCase().includes(searchLower) ||
+        item.stateOrProvince.toLowerCase().includes(searchLower) ||
+        item.weatherStation.toLowerCase().includes(searchLower) ||
+        item.primaryMissionSets.some((m) => m.toLowerCase().includes(searchLower)) ||
+        item.supportedAircraftSystems.some((a) => a.toLowerCase().includes(searchLower));
 
       const matchType = selectedType === "all" || item.type === selectedType;
       const matchBranch = selectedBranch === "all" || item.branch === selectedBranch;
@@ -80,7 +89,7 @@ export default function InstallationsPage() {
             <StatusBadge type="authoritative" label="Google Maps Integrated" />
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            Curated directory of public military installations, combatant commands, and Department of State diplomatic missions worldwide with interactive satellite imagery.
+            Directory of {GLOBAL_LOCATIONS.length} strategic military installations and diplomatic posts worldwide with supported aircraft platforms, mission sets, and threat-adaptive commander decision metrics.
           </p>
         </div>
 
@@ -109,6 +118,34 @@ export default function InstallationsPage() {
         <GoogleBaseMap location={activeLocation} />
       </div>
 
+      {/* Commander Decision Metrics Matrix (CDMM) */}
+      <div className="space-y-2">
+        <div className="flex items-center justify-between px-1">
+          <div className="flex items-center gap-2">
+            <Target className="w-4 h-4 text-amber-500" />
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              Commander Decision Support Engine
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setShowCommanderMatrix(!showCommanderMatrix)}
+            className="text-xs text-primary font-semibold hover:underline inline-flex items-center gap-1"
+          >
+            {showCommanderMatrix ? "Collapse Decision Matrix" : "Expand Decision Matrix"}
+            {showCommanderMatrix ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+        </div>
+
+        {showCommanderMatrix && (
+          <CommanderDecisionMatrix
+            location={activeLocation}
+            chemicalThreatRisk="Low (<16%)"
+            wbgtFlag="Yellow"
+          />
+        )}
+      </div>
+
       {/* Filter and Search Bar */}
       <div className="rounded-xl border border-border bg-card p-4 shadow-sm space-y-3">
         <div className="flex flex-col md:flex-row gap-3">
@@ -117,7 +154,7 @@ export default function InstallationsPage() {
             <Search className="w-4 h-4 absolute left-3 top-3 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Search by facility name, host nation, state, or ICAO station code..."
+              placeholder="Search by base, aircraft (F-35, B-52, C-17), mission, host nation, or ICAO station code..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-secondary/40 text-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary"
@@ -134,7 +171,7 @@ export default function InstallationsPage() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              All Facilities ({GLOBAL_LOCATIONS.length})
+              All ({GLOBAL_LOCATIONS.length})
             </button>
             <button
               onClick={() => setSelectedType("military_base")}
@@ -145,7 +182,7 @@ export default function InstallationsPage() {
               }`}
             >
               <Shield className="w-3.5 h-3.5" />
-              Military Bases (18)
+              Bases (35)
             </button>
             <button
               onClick={() => setSelectedType("diplomatic_post")}
@@ -156,7 +193,7 @@ export default function InstallationsPage() {
               }`}
             >
               <Building2 className="w-3.5 h-3.5" />
-              Diplomatic Posts (10)
+              Embassies (10)
             </button>
           </div>
         </div>
@@ -219,7 +256,7 @@ export default function InstallationsPage() {
                   : "border-border hover:border-primary/50 hover:bg-secondary/20"
               }`}
             >
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     {facility.type === "military_base" ? (
@@ -253,6 +290,53 @@ export default function InstallationsPage() {
                   {facility.description}
                 </p>
 
+                {/* Mission Sets */}
+                {facility.primaryMissionSets && facility.primaryMissionSets.length > 0 && (
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
+                      Primary Mission Sets:
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {facility.primaryMissionSets.map((m, idx) => (
+                        <span
+                          key={idx}
+                          className="text-[10px] px-2 py-0.5 rounded-md bg-secondary text-foreground font-medium border border-border"
+                        >
+                          {m}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Supported Aircraft / Systems */}
+                {facility.supportedAircraftSystems && facility.supportedAircraftSystems.length > 0 && (
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-1">
+                      <Plane className="w-3 h-3 text-primary" />
+                      Supported Aircraft & Platforms:
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {facility.supportedAircraftSystems.map((ac, idx) => (
+                        <span
+                          key={idx}
+                          className="text-[10px] px-1.5 py-0.5 rounded bg-primary/10 text-primary font-mono font-semibold border border-primary/20"
+                        >
+                          {ac}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Runway / Harbor Specs */}
+                {facility.runwayOrPortSpecs && (
+                  <div className="text-[11px] font-mono text-muted-foreground bg-secondary/30 p-2 rounded-lg border border-border">
+                    <span className="opacity-75 block text-[10px]">Airfield / Harbor:</span>
+                    <span className="text-foreground font-medium">{facility.runwayOrPortSpecs}</span>
+                  </div>
+                )}
+
                 {/* Geospatial Metrics */}
                 <div className="grid grid-cols-2 gap-2 pt-2 border-t border-border font-mono text-[11px] text-muted-foreground">
                   <div>
@@ -283,7 +367,7 @@ export default function InstallationsPage() {
                     className="inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline"
                   >
                     <Eye className="w-3.5 h-3.5" />
-                    View on Map
+                    Target on Map & Matrix
                   </button>
 
                   <a

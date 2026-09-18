@@ -26,8 +26,12 @@ import {
 } from "@/lib/units/conversion";
 import { CalculationDetailsDrawer } from "@/components/assessments/CalculationDetailsDrawer";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { CommanderDecisionMatrix } from "@/components/command/CommanderDecisionMatrix";
+import { GLOBAL_LOCATIONS } from "@/lib/data/locations";
 
 export default function ChemicalAssessmentPage() {
+  const [selectedLocationId, setSelectedLocationId] = useState<string>("BASE-01");
+
   // Input states with legacy workbook default (GA at 60°F, 9 ppm, 240 min)
   const [agentCode, setAgentCode] = useState<ChemicalAgentCode>("GA");
   const [concentration, setConcentration] = useState<number>(9);
@@ -419,6 +423,18 @@ export default function ChemicalAssessmentPage() {
                   "84th Percentile Threshold": assessmentResult.effects.lethality.thresholdDoses["dose_84"].toFixed(2),
                 }}
               />
+
+              {/* Commander Decision Metrics Matrix for Active Threat */}
+              <div className="pt-2">
+                <CommanderDecisionMatrix
+                  location={
+                    GLOBAL_LOCATIONS.find((l) => l.id === selectedLocationId) ||
+                    GLOBAL_LOCATIONS[0]
+                  }
+                  chemicalThreatRisk={assessmentResult.effects.incapacitation_severe.riskBracket}
+                  wbgtFlag="Yellow"
+                />
+              </div>
             </div>
           ) : (
             <div className="p-8 rounded-xl border border-dashed border-border text-center text-muted-foreground">

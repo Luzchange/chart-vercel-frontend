@@ -287,7 +287,7 @@ export default function DashboardPage() {
                 </div>
               </Link>
 
-              {/* Biological Reference Card */}
+              {/* CBRN Threat Assessment Library Card */}
               <Link
                 href="/hazard-library"
                 className="p-3.5 rounded-lg border border-border hover:border-primary/50 bg-secondary/30 hover:bg-secondary/60 transition-all group flex flex-col justify-between"
@@ -295,21 +295,21 @@ export default function DashboardPage() {
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
-                      <Biohazard className="w-4 h-4 text-rose-500" />
-                      Biological Hazard Reference
+                      <ShieldAlert className="w-4 h-4 text-purple-500" />
+                      CBRN Threat Assessment
                     </span>
-                    <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400">
-                      Reference Only
+                    <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400 font-bold">
+                      32 Threat Dossiers
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    27 curated pathogens and toxins from CDC/WHO: Anthrax, Plague, Tularemia, Botulinum, Ricin with incubation and transmission context.
+                    Comprehensive Chemical (G/V/Novichoks), Biological (Select agents, toxins), Radiological (RDD, gamma/alpha), and Nuclear (IND, reactor meltdown) dossiers with antidotes and cordon bounds.
                   </p>
                 </div>
                 <div className="mt-3 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
-                  <span>Legacy: Bio Sheet</span>
+                  <span>Doctrinal: CBRN Intel</span>
                   <span className="text-primary font-medium group-hover:translate-x-0.5 transition-transform inline-flex items-center">
-                    Open Library →
+                    Assess Threats →
                   </span>
                 </div>
               </Link>
@@ -337,7 +337,7 @@ export default function DashboardPage() {
               </div>
               <div className="flex items-center justify-between font-mono">
                 <span className="text-muted-foreground">Legacy Basis:</span>
-                <span className="text-foreground font-medium">Developed by Mike Golf (Jan 2018)</span>
+                <span className="text-foreground font-medium">Developed by Mike Golf</span>
               </div>
               <div className="flex items-center justify-between font-mono">
                 <span className="text-muted-foreground">Local Offline Cache:</span>

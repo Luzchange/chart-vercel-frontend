@@ -59,7 +59,7 @@ export function Sidebar() {
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center justify-between">
             <span>Legacy Basis:</span>
-            <span className="font-mono text-foreground font-semibold">Jan 2018 Validated</span>
+            <span className="font-mono text-foreground font-semibold">Validated Core</span>
           </div>
           <div className="text-[10px] text-primary/90 font-medium">
             Original Tool Developed by Mike Golf

@@ -128,9 +128,9 @@ const TRAINING_SLIDES: TrainingSlide[] = [
         "CHART+ is an occupational and environmental health (OEH) decision-support application. The original Chemical Hazard Assessment and Risk Tool (CHART) and its toxicological calculations were developed and validated by Mike Golf in January 2018. CHART+ preserves Mike Golf's validated algorithms while modernizing the platform with offline PWA support, multi-INT threat correlation, and Google Maps geospatial visualization.",
       keySteps: [
         {
-          step: "Legacy Basis: Developed by Mike Golf (Jan 2018)",
+          step: "Legacy Basis: Developed by Mike Golf",
           detail:
-            "The mathematical core of toxic load calculations, minute volume adjustments, and probit percentiles traces directly to Mike Golf's validated 2018 models.",
+            "The mathematical core of toxic load calculations, minute volume adjustments, and probit percentiles traces directly to Mike Golf's validated models.",
         },
         {
           step: "Qualified User Decision-Support",
@@ -620,7 +620,7 @@ export default function TrainingStudioPage() {
             Legacy Model Basis:
           </span>
           <span className="font-semibold text-foreground">
-            Developed by Mike Golf (Jan 2018)
+            Developed by Mike Golf
           </span>
         </div>
       </div>
@@ -1401,7 +1401,7 @@ export default function TrainingStudioPage() {
                       </div>
                       <div>
                         <span className="text-muted-foreground block text-[10px]">Legacy Basis:</span>
-                        <span>Mike Golf (Jan 2018)</span>
+                        <span>Mike Golf</span>
                       </div>
                     </div>
                     <div className="pt-2 border-t border-border text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">

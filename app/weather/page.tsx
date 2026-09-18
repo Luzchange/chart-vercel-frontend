@@ -16,8 +16,12 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { GLOBAL_LOCATIONS, GlobalLocationRecord } from "@/lib/data/locations";
 
 export default function WeatherWBGTPage() {
+  // Active facility selection
+  const [selectedLocationId, setSelectedLocationId] = useState<string>("BASE-01");
+
   // Weather parameters
   const [ambientTempF, setAmbientTempF] = useState<number>(86);
   const [relativeHumidity, setRelativeHumidity] = useState<number>(65);
@@ -149,6 +153,66 @@ export default function WeatherWBGTPage() {
           )}
         </button>
       </div>
+
+      {/* Facility / Diplomatic Post Target Banner */}
+      {(() => {
+        const curLoc = GLOBAL_LOCATIONS.find((l) => l.id === selectedLocationId) || GLOBAL_LOCATIONS[0];
+        return (
+          <div className="p-4 rounded-xl border border-border bg-card/60 backdrop-blur-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="facility-weather-select" className="text-xs font-semibold text-muted-foreground uppercase">
+                    Target Installation / Post:
+                  </label>
+                  <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-secondary text-muted-foreground border border-border">
+                    {curLoc.region}
+                  </span>
+                </div>
+                <select
+                  id="facility-weather-select"
+                  value={selectedLocationId}
+                  onChange={(e) => setSelectedLocationId(e.target.value)}
+                  className="font-bold text-foreground text-sm bg-transparent border-b border-border focus:outline-none focus:border-primary mt-0.5"
+                >
+                  <optgroup label="Military Installations">
+                    {GLOBAL_LOCATIONS.filter((l) => l.type === "military_base").map((loc) => (
+                      <option key={loc.id} value={loc.id} className="bg-card text-foreground">
+                        {loc.name} ({loc.stateOrProvince}, {loc.country})
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Diplomatic Posts & Embassies">
+                    {GLOBAL_LOCATIONS.filter((l) => l.type === "diplomatic_post").map((loc) => (
+                      <option key={loc.id} value={loc.id} className="bg-card text-foreground">
+                        {loc.name} ({loc.country})
+                      </option>
+                    ))}
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
+              <span>Station: <strong className="text-foreground">{curLoc.weatherStation}</strong></span>
+              <span>•</span>
+              <span>Elev: <strong className="text-foreground">{curLoc.elevationFt} ft</strong></span>
+              <span>•</span>
+              <a
+                href={`https://maps.google.com/maps?q=${curLoc.lat},${curLoc.lng}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline inline-flex items-center gap-1 font-sans"
+              >
+                Google Maps Satellite ↗
+              </a>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* 3-Tier WBGT Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

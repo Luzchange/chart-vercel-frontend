@@ -12,6 +12,7 @@ import {
   Bell,
   MapPin,
   RefreshCw,
+  Smartphone,
 } from "lucide-react";
 import { StatusBadge } from "../ui/StatusBadge";
 
@@ -114,6 +115,18 @@ export function HeaderBar({ currentLocationName = "Joint Base Andrews (Public Re
           {theme === "high-contrast" && <Contrast className="w-4 h-4 text-yellow-400" />}
           {theme === "light" && <Sun className="w-4 h-4 text-amber-500" />}
         </button>
+
+        {/* Android APK Direct Download */}
+        <a
+          href="/CHART-plus-v0.01.apk"
+          download="CHART-plus-v0.01.apk"
+          className="text-xs px-2.5 py-1.5 rounded-md bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-600 dark:text-emerald-400 font-semibold border border-emerald-500/20 transition-colors flex items-center gap-1.5"
+          title="Download CHART+ Android APK v0.01 (Phone & Tablet)"
+        >
+          <Smartphone className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">Android APK</span>
+          <span className="sm:hidden">APK</span>
+        </a>
 
         {/* Help & Limits */}
         <Link

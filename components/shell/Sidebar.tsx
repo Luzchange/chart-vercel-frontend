@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/lib/navigation";
 import { clsx } from "clsx";
+import { Smartphone, Download } from "lucide-react";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -64,6 +65,19 @@ export function Sidebar() {
             Original Tool Developed by Mike Golf
           </div>
         </div>
+
+        <a
+          href="/CHART-plus-v0.01.apk"
+          download="CHART-plus-v0.01.apk"
+          className="mt-2 flex items-center justify-between px-2 py-1.5 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 transition-colors text-[10px] font-semibold"
+          title="Download CHART+ Android APK v0.01 for Phone & Tablet"
+        >
+          <span className="flex items-center gap-1.5">
+            <Smartphone className="w-3.5 h-3.5" />
+            Android APK (v0.01)
+          </span>
+          <Download className="w-3 h-3" />
+        </a>
       </div>
     </aside>
   );

@@ -1,18 +1,24 @@
 {
   "name": "chart-plus",
-  "version": "0.1.0",
+  "version": "0.01",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "cross-env NEXT_EXPORT=true next build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:baselines": "vitest run tests/calculations/baselines.test.ts"
+    "test:baselines": "vitest run tests/calculations/baselines.test.ts",
+    "android:sync": "npx cap sync android",
+    "android:build": "npm run build:static && npx cap sync android"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
     "clsx": "^2.1.1",
     "idb": "^8.0.2",
     "lucide-react": "^0.475.0",
@@ -28,6 +34,7 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^10.1.0",
     "eslint": "^9.20.1",
     "eslint-config-next": "^15.1.7",
     "postcss": "^8.5.2",

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CHART+</string>
+    <string name="title_activity_main">CHART+</string>
+    <string name="package_name">mil.health.chartplus</string>
+    <string name="custom_url_scheme">mil.health.chartplus</string>
+</resources>

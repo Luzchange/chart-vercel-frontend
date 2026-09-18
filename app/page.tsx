@@ -18,6 +18,9 @@ import {
   ExternalLink,
   Plus,
   RefreshCw,
+  Smartphone,
+  Download,
+  Tablet,
 } from "lucide-react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
@@ -410,6 +413,37 @@ export default function DashboardPage() {
             >
               Launch Interactive Training Slides →
             </Link>
+          </div>
+
+          {/* Android APK v0.01 Phone & Tablet Package */}
+          <div className="border border-emerald-500/30 rounded-xl bg-emerald-500/5 p-5 shadow-sm space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Smartphone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                Android Native APK
+              </span>
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                v0.01
+              </span>
+            </div>
+            <h3 className="text-sm font-bold text-foreground flex items-center gap-1.5">
+              Phone & Tablet Field Package
+            </h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Native Android APK packaged with full offline calculations, responsive dual-screen layouts for tablets and phones, and hardware acceleration.
+            </p>
+            <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+              <Tablet className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Small phones to 12" tablets • Android 7.0 to 16</span>
+            </div>
+            <a
+              href="/CHART-plus-v0.01.apk"
+              download="CHART-plus-v0.01.apk"
+              className="w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-sm transition-all active:scale-[0.98]"
+            >
+              <Download className="w-4 h-4" />
+              Download Android APK (v0.01 • 4.8 MB)
+            </a>
           </div>
 
           {/* Quick Guidance Box */}

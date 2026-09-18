@@ -119,7 +119,7 @@ export default function ReportsPage() {
               <span className="font-semibold">Engine Version:</span> CHART+ v1.0
             </div>
             <div>
-              <span className="font-semibold">Model Provenance:</span> CHART 2018 Validated
+              <span className="font-semibold">Model Provenance:</span> CHART 2018 Validated (Original tool developed by Mike Golf)
             </div>
           </div>
         </div>

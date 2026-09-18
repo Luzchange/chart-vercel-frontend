@@ -29,7 +29,6 @@ export const NAV_ITEMS: NavItem[] = [
   { name: "Organization Context", href: "/organization-context", icon: Network },
   { name: "Hazard Library", href: "/hazard-library", icon: BookOpen },
   { name: "Public Situational Awareness", href: "/public-situational-awareness", icon: Radio },
-  { name: "FPCON Reference", href: "/fpcon", icon: ShieldAlert },
   { name: "Scenarios", href: "/scenarios", icon: FolderGit2 },
   { name: "Reports", href: "/reports", icon: FileText },
   { name: "Training & Education", href: "/training", icon: GraduationCap },

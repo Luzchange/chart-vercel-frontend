@@ -50,14 +50,19 @@ export function Sidebar() {
       </nav>
 
       {/* Legacy Provenance Stamp */}
-      <div className="pt-3 border-t border-border px-3 text-[11px] text-muted-foreground space-y-1">
+      <div className="pt-3 border-t border-border px-3 text-[11px] text-muted-foreground space-y-1.5">
         <div className="flex items-center justify-between">
           <span>Engine Model:</span>
           <span className="font-mono text-foreground font-medium">CHART+ v1.0</span>
         </div>
-        <div className="flex items-center justify-between">
-          <span>Legacy Basis:</span>
-          <span className="font-mono text-foreground">Jan 2018 Validated</span>
+        <div className="flex flex-col gap-0.5">
+          <div className="flex items-center justify-between">
+            <span>Legacy Basis:</span>
+            <span className="font-mono text-foreground font-semibold">Jan 2018 Validated</span>
+          </div>
+          <div className="text-[10px] text-primary/90 font-medium">
+            Original Tool Developed by Mike Golf
+          </div>
         </div>
       </div>
     </aside>

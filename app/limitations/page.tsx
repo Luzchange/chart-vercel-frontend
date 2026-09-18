@@ -51,6 +51,19 @@ export default function LimitationsPage() {
           The calculation algorithms in CHART+ were extracted and reverse-engineered directly from <code>CHART_2018 January.xlsm.xlsx</code>. Automated baseline test suites (<code>tests/calculations/baselines.test.ts</code>) continuously verify numerical parity against historical benchmark values:
         </p>
 
+        {/* Legacy Basis Attribution */}
+        <div className="p-4 rounded-xl bg-primary/10 border border-primary/30 text-foreground text-xs space-y-1.5">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-primary" />
+            <span className="font-bold uppercase tracking-wider text-primary">
+              Legacy Model Attribution & Historical Basis:
+            </span>
+          </div>
+          <p className="leading-relaxed">
+            The original <strong>Chemical Hazard Assessment and Risk Tool (CHART)</strong>, its core toxic load algorithms, and the legacy analytical spreadsheets were conceived, engineered, and validated by <strong>Mike Golf</strong> (validated January 2018). CHART+ preserves full mathematical fidelity with Mike Golf's foundational calculations while modernizing the platform into a secure, responsive, offline-first Progressive Web Application.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
           <div className="bg-secondary/40 p-4 rounded-lg border border-border space-y-2">
             <h3 className="font-bold text-foreground">Chemical Warfare Agent Toxic Load</h3>

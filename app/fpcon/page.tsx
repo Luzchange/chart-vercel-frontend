@@ -54,12 +54,19 @@ export default function FpconPage() {
               <ShieldAlert className="w-6 h-6 text-amber-500" />
               Force Protection Condition (FPCON) Educational Reference
             </h1>
-            <StatusBadge type="authoritative" label="Public DoD Directive" />
+            <StatusBadge type="authoritative" label="Training & Education" />
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            Unclassified doctrinal reference and training module on DoD force protection posture and physical security baselines.
+            Unclassified doctrinal reference on DoD force protection posture and physical security baselines.
           </p>
         </div>
+
+        <a
+          href="/training"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 transition-opacity"
+        >
+          View in Training & Education Hub →
+        </a>
       </div>
 
       <div className="p-3.5 rounded-lg bg-secondary/40 border border-border text-xs text-muted-foreground space-y-1">

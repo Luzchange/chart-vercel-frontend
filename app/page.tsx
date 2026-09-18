@@ -333,6 +333,10 @@ export default function DashboardPage() {
                 <span className="text-foreground font-medium">Pure Client/Edge TS Engine</span>
               </div>
               <div className="flex items-center justify-between font-mono">
+                <span className="text-muted-foreground">Legacy Basis:</span>
+                <span className="text-foreground font-medium">Developed by Mike Golf (Jan 2018)</span>
+              </div>
+              <div className="flex items-center justify-between font-mono">
                 <span className="text-muted-foreground">Local Offline Cache:</span>
                 <span className="text-foreground font-medium">Ready (IndexedDB Active)</span>
               </div>

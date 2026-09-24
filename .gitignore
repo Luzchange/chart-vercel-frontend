@@ -42,3 +42,6 @@ android/build/
 android/local.properties
 android/.gradle/
 
+# powerapps packages
+USAFSAM_*
+

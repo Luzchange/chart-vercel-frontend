@@ -11,7 +11,10 @@ import {
   Layers,
   ArrowRight,
   Flame,
+  Radiation,
+  ShieldAlert,
 } from "lucide-react";
+import Link from "next/link";
 import {
   assessChemicalExposure,
   AGENT_MODELS,
@@ -28,6 +31,9 @@ import { CalculationDetailsDrawer } from "@/components/assessments/CalculationDe
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { CommanderDecisionMatrix } from "@/components/command/CommanderDecisionMatrix";
 import { GLOBAL_LOCATIONS } from "@/lib/data/locations";
+import { CcaThroughputCalculator } from "@/components/assessments/CcaThroughputCalculator";
+import { AntidoteTriageCalculator } from "@/components/assessments/AntidoteTriageCalculator";
+import { CpsPurgeCalculator } from "@/components/assessments/CpsPurgeCalculator";
 
 export default function ChemicalAssessmentPage() {
   const [selectedLocationId, setSelectedLocationId] = useState<string>("BASE-01");
@@ -85,6 +91,8 @@ export default function ChemicalAssessmentPage() {
     }
   };
 
+  const [activeSubTab, setActiveSubTab] = useState<"toxic-load" | "cca-throughput" | "antidote-triage" | "cps-purge">("toxic-load");
+
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -93,12 +101,12 @@ export default function ChemicalAssessmentPage() {
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
               <FlaskConical className="w-6 h-6 text-primary" />
-              Chemical Agent Exposure Assessment
+              Chemical Agent Assessment & Operational Calculators
             </h1>
             <StatusBadge type="measured" label="Validated Model" />
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            Calculates vapor toxic load L = C^n * T and probit risk percentiles. Validated against legacy CHART 2018 algorithms.
+            Vapor toxic load calculations, CCA throughput kinetics, casualty antidote triage, and collective protection purge modeling.
           </p>
         </div>
 
@@ -121,8 +129,79 @@ export default function ChemicalAssessmentPage() {
         </button>
       </div>
 
-      {/* Main Grid: Inputs vs Results */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {/* Cross Assessment Links */}
+      <div className="flex flex-wrap gap-2 text-xs">
+        <span className="px-3 py-1.5 rounded-lg border border-primary/40 bg-primary/20 text-primary font-bold flex items-center gap-1.5">
+          <FlaskConical className="w-3.5 h-3.5 text-primary" /> Chemical Assessment (Active)
+        </span>
+        <Link
+          href="/assess/biological"
+          className="px-3 py-1.5 rounded-lg border border-border bg-card/60 hover:bg-card text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all"
+        >
+          <ShieldAlert className="w-3.5 h-3.5 text-teal-400" /> Biological Assessment
+        </Link>
+        <Link
+          href="/assess/radiological"
+          className="px-3 py-1.5 rounded-lg border border-border bg-card/60 hover:bg-card text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all"
+        >
+          <Radiation className="w-3.5 h-3.5 text-amber-400" /> Radiological Assessment
+        </Link>
+      </div>
+
+      {/* Sub-Tab Navigation Bar */}
+      <div className="flex flex-wrap gap-2 p-1.5 rounded-xl border border-border/80 bg-card/60">
+        <button
+          onClick={() => setActiveSubTab("toxic-load")}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+            activeSubTab === "toxic-load"
+              ? "bg-primary text-primary-foreground shadow"
+              : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+          }`}
+        >
+          <FlaskConical className="w-4 h-4" /> Toxic Vapor & Haber's Law
+        </button>
+
+        <button
+          onClick={() => setActiveSubTab("cca-throughput")}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+            activeSubTab === "cca-throughput"
+              ? "bg-primary text-primary-foreground shadow"
+              : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+          }`}
+        >
+          <Layers className="w-4 h-4" /> CCA Throughput & Bleach Logistics
+        </button>
+
+        <button
+          onClick={() => setActiveSubTab("antidote-triage")}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+            activeSubTab === "antidote-triage"
+              ? "bg-primary text-primary-foreground shadow"
+              : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+          }`}
+        >
+          <Flame className="w-4 h-4 text-red-400" /> Casualty Antidote Triage
+        </button>
+
+        <button
+          onClick={() => setActiveSubTab("cps-purge")}
+          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+            activeSubTab === "cps-purge"
+              ? "bg-primary text-primary-foreground shadow"
+              : "text-muted-foreground hover:text-foreground hover:bg-secondary/40"
+          }`}
+        >
+          <Info className="w-4 h-4 text-cyan-400" /> CPS Shelter Purge & Airlock
+        </button>
+      </div>
+
+      {/* Active Sub-Tab Views */}
+      {activeSubTab === "cca-throughput" && <CcaThroughputCalculator />}
+      {activeSubTab === "antidote-triage" && <AntidoteTriageCalculator />}
+      {activeSubTab === "cps-purge" && <CpsPurgeCalculator />}
+
+      {activeSubTab === "toxic-load" && (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Form Controls (5 cols) */}
         <div className="lg:col-span-5 space-y-4">
           <div className="rounded-xl border border-border bg-card p-5 shadow-sm space-y-4">
@@ -443,6 +522,7 @@ export default function ChemicalAssessmentPage() {
           )}
         </div>
       </div>
+      )}
     </div>
   );
 }

@@ -26,6 +26,7 @@ export const NAV_ITEMS: NavItem[] = [
   { name: "Weather & WBGT", href: "/weather", icon: SunMedium },
   { name: "Installations", href: "/installations", icon: MapPin },
   { name: "CBRN Assessment", href: "/hazard-library", icon: ShieldAlert },
+  { name: "Quick Reference", href: "/quick-reference", icon: BookOpen, badge: "NEW" },
   { name: "Public Situational Awareness", href: "/public-situational-awareness", icon: Radio },
   { name: "Scenarios", href: "/scenarios", icon: FolderGit2 },
   { name: "Reports", href: "/reports", icon: FileText },

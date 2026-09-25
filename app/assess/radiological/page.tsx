@@ -10,7 +10,10 @@ import {
   BookmarkPlus,
   AlertTriangle,
   Wind,
+  FlaskConical,
+  ShieldAlert,
 } from "lucide-react";
+import Link from "next/link";
 import {
   calculateDoseRateAtDistance,
   calculateDistanceToDoseRate,
@@ -128,6 +131,25 @@ export default function RadiologicalAssessmentPage() {
             </>
           )}
         </button>
+      </div>
+
+      {/* Cross Assessment Links */}
+      <div className="flex flex-wrap gap-2 text-xs">
+        <Link
+          href="/assess/chemical"
+          className="px-3 py-1.5 rounded-lg border border-border bg-card/60 hover:bg-card text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all"
+        >
+          <FlaskConical className="w-3.5 h-3.5 text-primary" /> Chemical Assessment
+        </Link>
+        <Link
+          href="/assess/biological"
+          className="px-3 py-1.5 rounded-lg border border-border bg-card/60 hover:bg-card text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all"
+        >
+          <ShieldAlert className="w-3.5 h-3.5 text-teal-400" /> Biological Assessment
+        </Link>
+        <span className="px-3 py-1.5 rounded-lg border border-amber-500/40 bg-amber-950/20 text-amber-300 font-bold flex items-center gap-1.5">
+          <Radiation className="w-3.5 h-3.5 text-amber-400" /> Radiological Assessment (Active)
+        </span>
       </div>
 
       {/* Tabs */}

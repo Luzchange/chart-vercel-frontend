@@ -34,10 +34,10 @@ export default function LimitationsPage() {
           Non-Negotiable Safety & Ethical Boundaries
         </h2>
         <p className="text-xs leading-relaxed">
-          CHART+ is strictly engineered for <strong>protective, educational, occupational-health, environmental-health, scenario documentation, and public-reference capabilities</strong>. It does NOT provide instructions for synthesizing, acquiring, weaponizing, optimizing, or dispersing chemical, biological, radiological, or nuclear materials. It contains no restricted operational defense information, troop deployment schedules, or classified facility layouts.
+          C2RAT is strictly engineered for <strong>protective, educational, occupational-health, environmental-health, scenario documentation, and public-reference capabilities</strong>. It does NOT provide instructions for synthesizing, acquiring, weaponizing, optimizing, or dispersing chemical, biological, radiological, or nuclear materials. It contains no restricted operational defense information, troop deployment schedules, or classified facility layouts.
         </p>
         <p className="text-xs font-semibold">
-          High-Consequence Application Notice: CHART+ provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.
+          High-Consequence Application Notice: C2RAT provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.
         </p>
       </div>
 
@@ -48,7 +48,7 @@ export default function LimitationsPage() {
           Legacy Workbook Migration & Parity Verification
         </h2>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          The calculation algorithms in CHART+ were extracted and reverse-engineered directly from <code>CHART_2018 January.xlsm.xlsx</code>. Automated baseline test suites (<code>tests/calculations/baselines.test.ts</code>) continuously verify numerical parity against historical benchmark values:
+          The calculation algorithms in C2RAT were extracted and reverse-engineered directly from <code>CHART_2018 January.xlsm.xlsx</code>. Automated baseline test suites (<code>tests/calculations/baselines.test.ts</code>) continuously verify numerical parity against historical benchmark values:
         </p>
 
         {/* Legacy Basis Attribution */}
@@ -60,7 +60,7 @@ export default function LimitationsPage() {
             </span>
           </div>
           <p className="leading-relaxed">
-            The original <strong>Chemical Hazard Assessment and Risk Tool (CHART)</strong>, its core toxic load algorithms, and the legacy analytical spreadsheets were conceived, engineered, and validated by <strong>Mike Golf</strong> (validated January 2018). CHART+ preserves full mathematical fidelity with Mike Golf's foundational calculations while modernizing the platform into a secure, responsive, offline-first Progressive Web Application.
+            The original <strong>Chemical Hazard Assessment and Risk Tool (CHART)</strong>, its core toxic load algorithms, and the legacy analytical spreadsheets were conceived, engineered, and validated by <strong>Mike Golf</strong> (validated January 2018). C2RAT preserves full mathematical fidelity with Mike Golf's foundational calculations while modernizing the platform into a secure, responsive, offline-first Progressive Web Application.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function LimitationsPage() {
         <div className="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 text-xs space-y-1">
           <span className="font-bold block">Legacy Workbook Anomalies Resolved:</span>
           <p className="text-[11px] leading-relaxed">
-            Inspection of the legacy 2018 Excel file revealed broken formulas (<code>#REF!</code> errors in cells C23–C28 of the 'Instruction' sheet) due to unlinked temperature cell references. CHART+ resolves these by implementing strict, strongly-typed physical conversion pipelines with bidirectional verification (°F ↔ °C ↔ K).
+            Inspection of the legacy 2018 Excel file revealed broken formulas (<code>#REF!</code> errors in cells C23–C28 of the 'Instruction' sheet) due to unlinked temperature cell references. C2RAT resolves these by implementing strict, strongly-typed physical conversion pipelines with bidirectional verification (°F ↔ °C ↔ K).
           </p>
         </div>
       </div>

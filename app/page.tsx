@@ -402,7 +402,7 @@ export default function DashboardPage() {
               <StatusBadge type="authoritative" label="8 Modules" />
             </div>
             <h3 className="text-sm font-bold text-foreground">
-              CHART+ Master Operator Training Course
+              C2RAT Master Operator Training Course
             </h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
               Step-by-step interactive slide deck explaining how to use Haber's toxic load, radiological stay times, 3-tier WBGT, and commander metrics.

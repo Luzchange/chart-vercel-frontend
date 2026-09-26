@@ -63,14 +63,14 @@ export function HeaderBar({ currentLocationName = "Joint Base Andrews (Public Re
       <div className="flex items-center gap-4">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-bold text-lg group-hover:scale-105 transition-transform">
-            C+
+            C2
           </div>
           <div>
             <span className="font-bold tracking-tight text-base sm:text-lg text-foreground block leading-none">
-              CHART<span className="text-primary font-black">+</span>
+              C2RAT
             </span>
             <span className="text-[10px] uppercase tracking-wider text-muted-foreground block font-mono">
-              OEH Decision Suite
+              CBRN Cell Health Risk Assessment
             </span>
           </div>
         </Link>
@@ -121,7 +121,7 @@ export function HeaderBar({ currentLocationName = "Joint Base Andrews (Public Re
           href="/CHART-plus-v0.01.apk"
           download="CHART-plus-v0.01.apk"
           className="text-xs px-2.5 py-1.5 rounded-md bg-emerald-600/10 hover:bg-emerald-600/20 text-emerald-600 dark:text-emerald-400 font-semibold border border-emerald-500/20 transition-colors flex items-center gap-1.5"
-          title="Download CHART+ Android APK v0.01 (Phone & Tablet)"
+          title="Download C2RAT Android APK v0.01 (Phone & Tablet)"
         >
           <Smartphone className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">Android APK</span>

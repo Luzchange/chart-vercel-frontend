@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'mil.health.chartplus',
-  appName: 'CHART+',
+  appName: 'C2RAT',
   webDir: 'out',
   backgroundColor: '#0f172a',
   server: {

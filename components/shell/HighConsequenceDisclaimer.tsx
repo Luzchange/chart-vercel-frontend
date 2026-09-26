@@ -14,7 +14,7 @@ export function HighConsequenceDisclaimer() {
             <span className="font-semibold uppercase tracking-wider text-[11px] mr-1.5 px-1 py-0.5 rounded bg-amber-500/20">
               Notice
             </span>
-            CHART+ provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.
+            C2RAT provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.
           </p>
         </div>
         <span className="hidden md:inline-block text-[11px] opacity-75 font-mono">

@@ -3,14 +3,14 @@ import { AppShell } from "@/components/shell/AppShell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CHART+ | Occupational & Environmental Health Decision Support",
+  title: "CBRN Cell Health Risk Assessment (C2RAT)",
   description:
-    "Validated exposure assessment, hazard intelligence, weather/WBGT planning, and OEH scenario documentation suite.",
+    "CBRN Cell Health Risk Assessment (C2RAT) - Validated exposure assessment, hazard intelligence, weather/WBGT planning, and tactical decision support suite.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "CHART+",
+    title: "C2RAT",
   },
 };
 

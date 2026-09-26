@@ -4,8 +4,8 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "CHART+ Occupational & Environmental Health",
-    short_name: "CHART+",
+    name: "CBRN Cell Health Risk Assessment (C2RAT)",
+    short_name: "C2RAT",
     description:
       "Occupational and environmental health decision-support, exposure assessment, hazard intelligence, and educational suite.",
     start_url: "/",

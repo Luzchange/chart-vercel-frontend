@@ -54,7 +54,7 @@ export function Sidebar() {
       <div className="pt-3 border-t border-border px-3 text-[11px] text-muted-foreground space-y-1.5">
         <div className="flex items-center justify-between">
           <span>Engine Model:</span>
-          <span className="font-mono text-foreground font-medium">CHART+ v1.0</span>
+          <span className="font-mono text-foreground font-medium">C2RAT v1.0</span>
         </div>
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center justify-between">
@@ -70,7 +70,7 @@ export function Sidebar() {
           href="/CHART-plus-v0.01.apk"
           download="CHART-plus-v0.01.apk"
           className="mt-2 flex items-center justify-between px-2 py-1.5 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 transition-colors text-[10px] font-semibold"
-          title="Download CHART+ Android APK v0.01 for Phone & Tablet"
+          title="Download C2RAT Android APK v0.01 for Phone & Tablet"
         >
           <span className="flex items-center gap-1.5">
             <Smartphone className="w-3.5 h-3.5" />

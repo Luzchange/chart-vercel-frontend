@@ -35,11 +35,11 @@ export default function ReportsPage() {
       scenarioId: "SCN-2026-0042",
       title: "OEH Operational Decision Assessment & Heat Stress Report",
       generatedAt: new Date().toISOString(),
-      appVersion: "CHART+ v1.0",
-      calculationModelVersion: "CHART-2018-VALIDATED-v1.0",
+      appVersion: "C2RAT v1.0",
+      calculationModelVersion: "C2RAT-VALIDATED-v1.0",
       location: "Joint Base Andrews (MD)",
       disclaimer:
-        "CHART+ provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.",
+        "C2RAT provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.",
       summary:
         "Amber Flag conditions prevail. Outdoor physical exertion should follow a 40 min work / 20 min rest cycle with 0.75 qt/hr hydration. Airborne alpha particulate sampling remains within standard guidelines.",
     };
@@ -96,15 +96,15 @@ export default function ReportsPage() {
         <div className="border-b-2 border-slate-800 pb-4 flex flex-col sm:flex-row justify-between items-start gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-black text-slate-900 tracking-tight">
-                CHART<span className="text-blue-600">+</span>
+              <span className="text-2xl font-black text-slate-900 tracking-tight font-mono">
+                C2RAT
               </span>
               <span className="text-xs uppercase font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-semibold">
                 Official Report
               </span>
             </div>
             <h2 className="text-xl font-bold text-slate-900 mt-1">
-              OEH Exposure & Meteorological Decision Assessment
+              CBRN Cell Health Risk Assessment Report
             </h2>
             <p className="text-xs text-slate-500 font-mono mt-0.5">
               Scenario: SCN-2026-0042 • Report ID: RPT-2026-0301-001
@@ -116,10 +116,10 @@ export default function ReportsPage() {
               <span className="font-semibold">Generated:</span> 2026-03-01 10:30 UTC
             </div>
             <div>
-              <span className="font-semibold">Engine Version:</span> CHART+ v1.0
+              <span className="font-semibold">Engine Version:</span> C2RAT v1.0
             </div>
             <div>
-              <span className="font-semibold">Model Provenance:</span> CHART 2018 Validated (Original tool developed by Mike Golf)
+              <span className="font-semibold">Model Provenance:</span> Validated Core (Original tool developed by Mike Golf)
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function ReportsPage() {
             Notice & Decision-Support Disclaimer:
           </span>
           <p className="text-[11px] leading-relaxed">
-            CHART+ provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.
+            C2RAT provides decision-support and educational information for qualified users. It does not replace official guidance, local safety policy, clinical judgment, emergency procedures, or authorized command direction.
           </p>
         </div>
 

@@ -120,12 +120,12 @@ const TRAINING_SLIDES: TrainingSlide[] = [
   {
     id: 1,
     title: "1. Mission, Operational Bounds & Legacy Basis",
-    subtitle: "Understanding what CHART+ is designed for, ethical safety bounds, and Mike Golf's legacy foundation.",
+    subtitle: "Understanding what C2RAT is designed for, ethical safety bounds, and Mike Golf's legacy foundation.",
     category: "Foundations",
     icon: <GraduationCap className="w-6 h-6 text-primary" />,
     content: {
       overview:
-        "CHART+ is an occupational and environmental health (OEH) decision-support application. The original Chemical Hazard Assessment and Risk Tool (CHART) and its toxicological calculations were developed and validated by Mike Golf in January 2018. CHART+ preserves Mike Golf's validated algorithms while modernizing the platform with offline PWA support, multi-INT threat correlation, and Google Maps geospatial visualization.",
+        "C2RAT is an occupational and environmental health (OEH) decision-support application. The original Chemical Hazard Assessment and Risk Tool (CHART) and its toxicological calculations were developed and validated by Mike Golf in January 2018. C2RAT preserves Mike Golf's validated algorithms while modernizing the platform with offline PWA support, multi-INT threat correlation, and Google Maps geospatial visualization.",
       keySteps: [
         {
           step: "Legacy Basis: Developed by Mike Golf",
@@ -135,7 +135,7 @@ const TRAINING_SLIDES: TrainingSlide[] = [
         {
           step: "Qualified User Decision-Support",
           detail:
-            "CHART+ assists qualified medical, bioenvironmental engineering, and CBRN specialists. It does NOT replace command authority or clinical diagnosis.",
+            "C2RAT assists qualified medical, bioenvironmental engineering, and CBRN specialists. It does NOT replace command authority or clinical diagnosis.",
         },
         {
           step: "Strict Safety & Ethical Boundaries",
@@ -259,7 +259,7 @@ const TRAINING_SLIDES: TrainingSlide[] = [
     icon: <Radiation className="w-6 h-6 text-purple-500" />,
     content: {
       overview:
-        "Airborne radioactive dust and alpha-emitting particles pose acute internal inhalation hazards. CHART+ replicates Mike Golf's legacy air sampler calculation sheet with automated respiratory protection alerts.",
+        "Airborne radioactive dust and alpha-emitting particles pose acute internal inhalation hazards. C2RAT replicates Mike Golf's legacy air sampler calculation sheet with automated respiratory protection alerts.",
       keySteps: [
         {
           step: "1. Enter Pump Flow & Sample Duration",
@@ -290,7 +290,7 @@ const TRAINING_SLIDES: TrainingSlide[] = [
     icon: <SunMedium className="w-6 h-6 text-amber-500" />,
     content: {
       overview:
-        "Preventing non-battle heat casualties requires rigorous environmental monitoring. CHART+ separates on-site physical measurements, transparent Liljegren empirical estimation, and NWS HeatRisk planning forecasts.",
+        "Preventing non-battle heat casualties requires rigorous environmental monitoring. C2RAT separates on-site physical measurements, transparent Liljegren empirical estimation, and NWS HeatRisk planning forecasts.",
       keySteps: [
         {
           step: "Tier 1: Measured WBGT (Gold Standard)",
@@ -333,7 +333,7 @@ const TRAINING_SLIDES: TrainingSlide[] = [
     icon: <MapPin className="w-6 h-6 text-blue-500" />,
     content: {
       overview:
-        "CHART+ maintains a curated directory of 35 major military installations and 10 U.S. diplomatic missions worldwide, integrated with interactive Google Maps satellite imagery and airfield specs.",
+        "C2RAT maintains a curated directory of 35 major military installations and 10 U.S. diplomatic missions worldwide, integrated with interactive Google Maps satellite imagery and airfield specs.",
       keySteps: [
         {
           step: "1. Search and Filter Facilities",
@@ -405,7 +405,7 @@ const TRAINING_SLIDES: TrainingSlide[] = [
     icon: <FileText className="w-6 h-6 text-indigo-500" />,
     content: {
       overview:
-        "The ultimate goal of CHART+ is enabling timely, legally defensible, life-saving command decisions. Synthesize threats into commander directives and generate auditable reports.",
+        "The ultimate goal of C2RAT is enabling timely, legally defensible, life-saving command decisions. Synthesize threats into commander directives and generate auditable reports.",
       keySteps: [
         {
           step: "1. Commander Decision Metrics Matrix (CDMM)",
@@ -460,7 +460,7 @@ const CERT_QUESTIONS: CertQuestion[] = [
   {
     id: 1,
     topic: "Legacy Provenance",
-    question: "Under the legacy basis of CHART+, who originally created and validated the core CHART algorithms in January 2018?",
+    question: "Under the legacy basis of C2RAT, who originally created and validated the core CHART algorithms in January 2018?",
     options: ["Mike Golf", "John Bravo", "Alex Charlie", "David Foxtrot"],
     correctIndex: 0,
   },
@@ -486,7 +486,7 @@ const CERT_QUESTIONS: CertQuestion[] = [
   {
     id: 4,
     topic: "Airborne Particulate Trigger",
-    question: "At what airborne alpha particulate activity threshold does CHART+ mandate respiratory protection (M-series mask or PAPR)?",
+    question: "At what airborne alpha particulate activity threshold does C2RAT mandate respiratory protection (M-series mask or PAPR)?",
     options: ["5 dpm/m³", "10 dpm/m³", "20 dpm/m³", "100 dpm/m³"],
     correctIndex: 2,
   },
@@ -605,12 +605,12 @@ export default function TrainingStudioPage() {
           <div className="flex items-center gap-2">
             <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
               <GraduationCap className="w-6 h-6 text-primary" />
-              CHART+ Training, Education & FPCON Center
+              C2RAT Training, Education & FPCON Center
             </h1>
             <StatusBadge type="authoritative" label="Standard Curriculum" />
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            Master the complete CHART+ workflow: interactive app guide, FPCON doctrinal reference, master slides, and operator certification.
+            Master the complete C2RAT workflow: interactive app guide, FPCON doctrinal reference, master slides, and operator certification.
           </p>
         </div>
 
@@ -691,7 +691,7 @@ export default function TrainingStudioPage() {
                 Validated Historical Lineage:
               </span>
               <p className="text-xs text-foreground leading-relaxed">
-                CHART+ is built upon the validated foundation of the original Chemical Hazard Assessment and Risk Tool (CHART) developed by <strong>Mike Golf</strong> in January 2018. The algorithms implement Haber's toxic load, probit slopes, and radiological stay times with 100% mathematical parity.
+                C2RAT is built upon the validated foundation of the original Chemical Hazard Assessment and Risk Tool (CHART) developed by <strong>Mike Golf</strong> in January 2018. The algorithms implement Haber's toxic load, probit slopes, and radiological stay times with 100% mathematical parity.
               </p>
             </div>
             <Link
@@ -1258,7 +1258,7 @@ export default function TrainingStudioPage() {
               <div>
                 <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
                   <Award className="w-6 h-6 text-emerald-500" />
-                  CHART+ Certified Field Operator Examination
+                  C2RAT Certified Field Operator Examination
                 </h2>
                 <p className="text-xs text-muted-foreground mt-1">
                   Complete the 8-question standardized exam to verify proficiency in Haber's Law, radiological physics, 3-tier WBGT, FPCON, and Commander Decision Metrics.
@@ -1387,7 +1387,7 @@ export default function TrainingStudioPage() {
                 {examPassed && (
                   <div className="max-w-md mx-auto p-4 rounded-xl bg-card border border-border text-foreground text-left shadow-md space-y-2 font-mono text-xs">
                     <div className="border-b border-border pb-2 flex justify-between items-center">
-                      <span className="font-bold text-primary">CHART+ OPERATOR CERTIFICATE</span>
+                      <span className="font-bold text-primary">C2RAT OPERATOR CERTIFICATE</span>
                       <span className="text-[10px] text-muted-foreground">ID: CERT-2026-MG01</span>
                     </div>
                     <div>
@@ -1397,7 +1397,7 @@ export default function TrainingStudioPage() {
                     <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
                       <div>
                         <span className="text-muted-foreground block text-[10px]">Curriculum:</span>
-                        <span>CHART+ Master Operator</span>
+                        <span>C2RAT Master Operator</span>
                       </div>
                       <div>
                         <span className="text-muted-foreground block text-[10px]">Legacy Basis:</span>
